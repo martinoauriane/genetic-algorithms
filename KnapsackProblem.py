@@ -1,4 +1,4 @@
-import random
+lsimport random
 
 CHROMOSOME_LEN = 10
 POPULATION_LENGTH = 10
