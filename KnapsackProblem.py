@@ -1,11 +1,13 @@
-lsimport random
+import random
 
 CHROMOSOME_LEN = 10
 POPULATION_LENGTH = 10
-GENERATIONS = 2
+GENERATIONS = 10
 
 obj = [ [2, 6], [3, 5], [6, 8], [7, 9], [5, 6], [9, 7], [4, 6], [1, 3],  [8, 10], [6, 7] ]
-    # [0, 1, 0, 1, 0, 0, 1, 1, 0, 1]
+#[0, 1, 1, 0, 1, 0, 1, 0, 0, 0]
+
+
 def generate_gene(): 
     return random.randint(0, 1)
 
@@ -66,7 +68,7 @@ def mutation(population, mutation_rate=0.5):
 def genetic_algorithm():
     population = generate_population()
     
-    for i in range(GENERATIONS):
+    for i in range(0, GENERATIONS):
         fitness_scores = []
         for i in range(POPULATION_LENGTH):
             score = fitness(population[i], obj)
@@ -83,4 +85,8 @@ def genetic_algorithm():
 
         # mutation 
         population = mutation(population)
+        
+        print(f"Generation {i}: population = {population}\n", i, population)
+        print("\n")
 
+genetic_algorithm()
